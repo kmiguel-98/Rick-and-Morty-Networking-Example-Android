@@ -7,14 +7,3 @@ data class CharacterListViewModelState(
     var error: String = "",
     var isLoading: Boolean = false
 )
-
-fun CharacterListViewModelState.update(
-    characterList: MutableList<Character>? = null,
-    error: String? = null,
-    isLoading: Boolean? = null
-) {
-
-    characterList?.let { this.characterList = characterList }
-    error?.let { this.error = error }
-    isLoading?.let { this.isLoading = isLoading }
-}

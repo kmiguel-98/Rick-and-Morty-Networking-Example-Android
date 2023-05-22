@@ -9,5 +9,22 @@
         android:id="@+id/characterListScreenFragment"
         android:name="com.example.rick_and_morty_android_networking_example_app.ui.character_list_screen.CharacterListContainerFragment"
         android:label="character_list_screen_fragment"
-        tools:layout="@layout/character_list_container_fragment" />
+        tools:layout="@layout/character_list_container_fragment" >
+        <action
+            android:id="@+id/action_characterListScreenFragment_to_characterDetailFragment"
+            app:destination="@id/characterDetailFragment">
+            <argument
+                android:name="characterId"
+                app:argType="integer" />
+        </action>
+    </fragment>
+
+    <fragment
+        android:id="@+id/characterDetailFragment"
+        android:name="com.example.rick_and_morty_android_networking_example_app.ui.character_detail_screen.CharacterDetailFragment"
+        android:label="character_detail_fragment"
+        tools:layout="@layout/character_detail_fragment" />
+    <argument
+        android:name="characterId"
+        app:argType="integer" />
 </navigation>

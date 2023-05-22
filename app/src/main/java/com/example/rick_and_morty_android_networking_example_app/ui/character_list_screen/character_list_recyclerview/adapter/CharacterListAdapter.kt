@@ -1,6 +1,7 @@
 package com.example.rick_and_morty_android_networking_example_app.ui.character_list_screen.character_list_recyclerview.adapter
 
 import android.annotation.SuppressLint
+import android.service.autofill.OnClickAction
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,7 +13,10 @@ import com.example.rick_and_morty_android_networking_example_app.R
 import com.example.rick_and_morty_android_networking_example_app.databinding.CharacterItemCellLayoutBinding
 import com.example.rick_and_morty_android_networking_example_app.domain.models.Character
 
-class CharacterListAdapter(private val characterList: MutableList<Character>): RecyclerView.Adapter<CharacterListAdapter.CharacterListViewHolder>() {
+class CharacterListAdapter(
+    private val characterList: MutableList<Character>,
+    private val onClickAction: ((Int) -> Unit)
+    ): RecyclerView.Adapter<CharacterListAdapter.CharacterListViewHolder>() {
 
     inner class CharacterListViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {
 
@@ -30,6 +34,10 @@ class CharacterListAdapter(private val characterList: MutableList<Character>): R
                 .transition(DrawableTransitionOptions.withCrossFade())
                 .diskCacheStrategy(DiskCacheStrategy.ALL)
                 .into(binding.characterImageview)
+
+            binding.itemCellContainer.setOnClickListener {
+                onClickAction.invoke(character.id)
+            }
         }
     }
 

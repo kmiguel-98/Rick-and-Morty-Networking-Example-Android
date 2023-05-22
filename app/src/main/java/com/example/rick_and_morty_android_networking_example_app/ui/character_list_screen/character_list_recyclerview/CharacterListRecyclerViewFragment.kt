@@ -23,6 +23,9 @@ class CharacterListRecyclerViewFragment private constructor() : Fragment() {
     lateinit var viewModel: CharacterListViewModel
     private set
 
+    lateinit var onClickAction: ((Int) -> Unit)
+    private set
+
     private var _binding: CharacterListRecyclerViewFragmentBinding? = null
     private val binding get() = _binding!!
 
@@ -44,7 +47,7 @@ class CharacterListRecyclerViewFragment private constructor() : Fragment() {
         setUpRecyclerView(viewModel.state.value.characterList)
         super.onViewCreated(view, savedInstanceState)
 
-        viewModel.recyclerViewDidLoad()
+        viewModel.recyclerDidMadeRefreshGesture()
     }
 
     override fun onDestroyView() {
@@ -56,7 +59,7 @@ class CharacterListRecyclerViewFragment private constructor() : Fragment() {
     // Private_Methods
     private fun setUpRecyclerView(characterList: List<Character>) {
 
-        characterListAdapter = CharacterListAdapter(characterList.toMutableList())
+        characterListAdapter = CharacterListAdapter(characterList.toMutableList(), onClickAction)
         binding.characterListRecyclerview.adapter = characterListAdapter
     }
 
@@ -90,9 +93,10 @@ class CharacterListRecyclerViewFragment private constructor() : Fragment() {
 
     companion object {
 
-        fun newInstance(viewModel: CharacterListViewModel): CharacterListRecyclerViewFragment {
+        fun newInstance(viewModel: CharacterListViewModel, onClickAction: ((Int) -> Unit)): CharacterListRecyclerViewFragment {
             val fragment = CharacterListRecyclerViewFragment()
             fragment.viewModel = viewModel
+            fragment.onClickAction = onClickAction
             return fragment
         }
     }
