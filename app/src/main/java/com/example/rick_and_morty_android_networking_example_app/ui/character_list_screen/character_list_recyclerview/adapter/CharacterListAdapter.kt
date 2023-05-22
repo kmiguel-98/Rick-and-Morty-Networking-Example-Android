@@ -5,6 +5,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import com.bumptech.glide.load.engine.DiskCacheStrategy
+import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import com.example.rick_and_morty_android_networking_example_app.R
 import com.example.rick_and_morty_android_networking_example_app.databinding.CharacterItemCellLayoutBinding
 import com.example.rick_and_morty_android_networking_example_app.domain.models.Character
@@ -20,6 +23,13 @@ class CharacterListAdapter(private val characterList: MutableList<Character>): R
             binding.statusSpeciesTextview.text = view.context.getString(R.string.status_species_text, character.species, character.status)
             binding.lastKnownLocationTextview.text = character.location.name
             binding.originTextview.text = character.origin.name
+
+            Glide.with(view)
+                .load(character.image.toString())
+                .placeholder(R.drawable.placeholder_image)
+                .transition(DrawableTransitionOptions.withCrossFade())
+                .diskCacheStrategy(DiskCacheStrategy.ALL)
+                .into(binding.characterImageview)
         }
     }
 

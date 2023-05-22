@@ -1,5 +1,6 @@
 package com.example.rick_and_morty_android_networking_example_app.ui
 
+import android.content.pm.ActivityInfo
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -23,6 +24,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+       // requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
     }
 
 
