@@ -41,6 +41,7 @@ android {
         main {
             res.srcDirs = [
                     "src/main/res/layout/character_list_screen",
+                    "src/main/res/layout/character_list_screen/cells/",
                     "src/main/res"
             ]
         }
