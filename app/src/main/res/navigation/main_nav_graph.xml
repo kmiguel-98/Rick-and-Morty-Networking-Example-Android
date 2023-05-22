@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_nav_graph"
+    app:startDestination="@id/characterListScreenFragment">
+
+    <fragment
+        android:id="@+id/characterListScreenFragment"
+        android:name="com.example.rick_and_morty_android_networking_example_app.ui.character_list_screen.CharacterListScreenFragment"
+        android:label="character_list_screen_fragment"
+        tools:layout="@layout/character_list_screen_fragment" />
+</navigation>
