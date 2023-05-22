@@ -13,6 +13,7 @@ class CharacterUseCasesImpl @Inject constructor(
 ) : RickAndMortyUseCases.CharacterUseCases {
     override fun getCharacters(pageNumber: Int) = flow {
         val page = pageNumber.toString()
+
         try {
             emit(Loading())
             val resource = repository.getCharacters(page)

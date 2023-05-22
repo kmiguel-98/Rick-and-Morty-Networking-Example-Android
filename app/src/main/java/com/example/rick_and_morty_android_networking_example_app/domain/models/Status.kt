@@ -5,6 +5,7 @@ enum class Status(val value: String) {
     ALIVE("Alive"),
     DEAD("Dead"),
     UNKNOWN("Unknown");
+
     companion object {
         fun allValues() = values().map { it.value }
 

@@ -23,6 +23,7 @@ class CharacterListContainerFragment : Fragment() {
     private var _binding: CharacterListContainerFragmentBinding? = null
     private val binding get() = _binding!!
 
+    // Lifecycle
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -47,6 +48,7 @@ class CharacterListContainerFragment : Fragment() {
         _binding = null
     }
 
+    // Private_Methods
     private fun configureToolbar() {
 
         binding.fragmentToolbar.title = "Rick & Morty Characters"
