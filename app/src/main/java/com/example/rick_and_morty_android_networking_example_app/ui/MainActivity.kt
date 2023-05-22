@@ -25,14 +25,9 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
     }
 
-    @Inject lateinit var api: RickAndMortyRepository.CharacterRepository
 
     override fun onStart() {
         super.onStart()
 
-        lifecycleScope.launch(Dispatchers.IO) {
-            val response = api.getSingleCharacter("2")
-            Log.d(TAG, "onStart: ${response.data}")
-        }
     }
 }

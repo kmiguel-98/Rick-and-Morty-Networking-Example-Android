@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/characterListScreenFragment"
-        android:name="com.example.rick_and_morty_android_networking_example_app.ui.character_list_screen.CharacterListScreenFragment"
+        android:name="com.example.rick_and_morty_android_networking_example_app.ui.character_list_screen.CharacterListContainerFragment"
         android:label="character_list_screen_fragment"
-        tools:layout="@layout/character_list_screen_fragment" />
+        tools:layout="@layout/character_list_container_fragment" />
 </navigation>
