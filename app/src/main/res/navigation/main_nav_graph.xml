@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/characterListScreenFragment"
-        android:name="com.example.rick_and_morty_android_networking_example_app.ui.character_list_screen.CharacterListContainerFragment"
+        android:name="com.example.rick_and_morty_android_networking_example_app.ui.character_list_screen.view.CharacterListContainerFragment"
         android:label="character_list_screen_fragment"
         tools:layout="@layout/character_list_container_fragment" >
         <action
@@ -21,7 +21,7 @@
 
     <fragment
         android:id="@+id/characterDetailFragment"
-        android:name="com.example.rick_and_morty_android_networking_example_app.ui.character_detail_screen.CharacterDetailFragment"
+        android:name="com.example.rick_and_morty_android_networking_example_app.ui.character_detail_screen.view.CharacterDetailFragment"
         android:label="character_detail_fragment"
         tools:layout="@layout/character_detail_fragment" >
         <argument

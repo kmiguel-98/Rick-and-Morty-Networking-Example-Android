@@ -1,20 +1,19 @@
-package com.example.rick_and_morty_android_networking_example_app.ui.character_list_screen
+package com.example.rick_and_morty_android_networking_example_app.ui.character_list_screen.view
 
-import android.os.Build
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.Window
-import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.example.rick_and_morty_android_networking_example_app.R
 import com.example.rick_and_morty_android_networking_example_app.databinding.CharacterListContainerFragmentBinding
 import com.example.rick_and_morty_android_networking_example_app.ui.MainActivity
-import com.example.rick_and_morty_android_networking_example_app.ui.character_list_screen.character_list_recyclerview.CharacterListRecyclerViewFragment
+import com.example.rick_and_morty_android_networking_example_app.ui.character_list_screen.CharacterListViewModel
+import com.example.rick_and_morty_android_networking_example_app.ui.character_list_screen.view.character_list_recyclerview.CharacterListRecyclerViewFragment
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -63,7 +62,9 @@ class CharacterListContainerFragment : Fragment() {
         val recyclerViewFragment = CharacterListRecyclerViewFragment.newInstance(viewModel = viewModel) { characterId ->
 
             findNavController().navigate(
-                CharacterListContainerFragmentDirections.actionCharacterListScreenFragmentToCharacterDetailFragment(characterId)
+                CharacterListContainerFragmentDirections.actionCharacterListScreenFragmentToCharacterDetailFragment(
+                    characterId
+                )
             )
         }
 

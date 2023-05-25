@@ -1,4 +1,4 @@
-package com.example.rick_and_morty_android_networking_example_app.ui.character_list_screen.character_list_recyclerview.adapter
+package com.example.rick_and_morty_android_networking_example_app.ui.character_list_screen.view.character_list_recyclerview.adapter
 
 import android.annotation.SuppressLint
 import android.service.autofill.OnClickAction

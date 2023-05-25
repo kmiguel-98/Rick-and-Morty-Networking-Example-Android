@@ -1,4 +1,4 @@
-package com.example.rick_and_morty_android_networking_example_app.ui.character_list_screen.character_list_recyclerview
+package com.example.rick_and_morty_android_networking_example_app.ui.character_list_screen.view.character_list_recyclerview
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.rick_and_morty_android_networking_example_app.databinding.CharacterListRecyclerViewFragmentBinding
 import com.example.rick_and_morty_android_networking_example_app.domain.models.Character
 import com.example.rick_and_morty_android_networking_example_app.ui.character_list_screen.CharacterListViewModel
-import com.example.rick_and_morty_android_networking_example_app.ui.character_list_screen.character_list_recyclerview.adapter.CharacterListAdapter
+import com.example.rick_and_morty_android_networking_example_app.ui.character_list_screen.view.character_list_recyclerview.adapter.CharacterListAdapter
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
