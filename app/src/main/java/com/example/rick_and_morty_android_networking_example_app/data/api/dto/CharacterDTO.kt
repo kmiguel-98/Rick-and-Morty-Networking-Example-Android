@@ -10,11 +10,11 @@ import java.net.URL
 
 data class CharacterDTO(
     val created: String?,
-    val episode: List<String>,
+    val episode: List<String>?,
     val gender: String?,
     val id: Int?,
     val image: String?,
-    val location: LocationDTO,
+    val location: LocationDTO?,
     val name: String?,
     val origin: LocationDTO?,
     val species: String?,

@@ -77,9 +77,8 @@ class CharacterListViewModel @Inject constructor(
             }
 
             if (resource is Resource.Success || resource is Resource.Failure) {
-                continuation.resume(characterList)
+                continuation.resume(resource.data ?: emptyList())
             }
         }.launchIn(viewModelScope)
     }
-
 }
