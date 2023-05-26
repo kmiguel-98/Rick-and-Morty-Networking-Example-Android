@@ -1,6 +1,7 @@
 package com.example.rick_and_morty_android_networking_example_app.di
 
 import com.example.rick_and_morty_android_networking_example_app.common.Constants
+import com.example.rick_and_morty_android_networking_example_app.common.Constants.API.BASE_URL
 import com.example.rick_and_morty_android_networking_example_app.data.api.RickAndMortyAPI.*
 import com.example.rick_and_morty_android_networking_example_app.data.api.implementation.RickAndMortyCharacterAPIImpl
 import com.example.rick_and_morty_android_networking_example_app.domain.repository.RickAndMortyRepository.CharacterRepository
@@ -26,7 +27,7 @@ object ApplicationModule {
     @Provides
     @Singleton
     fun provideRetrofit(): Retrofit = Retrofit.Builder()
-            .baseUrl(Constants.BASE_URL)
+            .baseUrl(BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
             .addCallAdapterFactory(CoroutineCallAdapterFactory())
             .build()

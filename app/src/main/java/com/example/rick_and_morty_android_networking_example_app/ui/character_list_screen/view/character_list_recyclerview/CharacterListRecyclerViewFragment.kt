@@ -1,17 +1,20 @@
 package com.example.rick_and_morty_android_networking_example_app.ui.character_list_screen.view.character_list_recyclerview
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.rick_and_morty_android_networking_example_app.common.Constants.CharacterListScreen.SCROLL_POSITION_KEY
 import com.example.rick_and_morty_android_networking_example_app.databinding.CharacterListRecyclerViewFragmentBinding
 import com.example.rick_and_morty_android_networking_example_app.domain.models.Character
+import com.example.rick_and_morty_android_networking_example_app.ui.MainViewModel
 import com.example.rick_and_morty_android_networking_example_app.ui.character_list_screen.CharacterListViewModel
-import com.example.rick_and_morty_android_networking_example_app.ui.character_list_screen.view.character_list_recyclerview.adapter.CharacterListAdapter
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
@@ -30,6 +33,8 @@ class CharacterListRecyclerViewFragment private constructor() : Fragment() {
     private val binding get() = _binding!!
 
     private var characterListAdapter: CharacterListAdapter? = null
+
+    private val TAG = "CharacterListRecyclerView"
 
     //Lifecycle
     override fun onCreateView(
@@ -50,12 +55,6 @@ class CharacterListRecyclerViewFragment private constructor() : Fragment() {
         viewModel.recyclerDidMadeRefreshGesture()
     }
 
-    override fun onDestroyView() {
-
-        super.onDestroyView()
-        _binding = null
-    }
-
     // Private_Methods
     private fun setUpRecyclerView(characterList: List<Character>) {
 
@@ -70,11 +69,13 @@ class CharacterListRecyclerViewFragment private constructor() : Fragment() {
 
             if (state.error.isBlank() && !state.isLoading) {
                 characterListAdapter?.updateData(state.characterList)
+                binding.swipeRefreshLayout.isRefreshing = false
             }
         }.launchIn(viewLifecycleOwner.lifecycleScope)
 
         // OnScrollListener
-        binding.characterListRecyclerview.addOnScrollListener(object : RecyclerView.OnScrollListener() {
+        binding.characterListRecyclerview.addOnScrollListener(object :
+            RecyclerView.OnScrollListener() {
 
             override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
                 super.onScrolled(recyclerView, dx, dy)
@@ -89,6 +90,11 @@ class CharacterListRecyclerViewFragment private constructor() : Fragment() {
                 }
             }
         })
+
+        // SwipeRefreshGesture
+        binding.swipeRefreshLayout.setOnRefreshListener {
+            viewModel.recyclerDidMadeRefreshGesture()
+        }
     }
 
     companion object {

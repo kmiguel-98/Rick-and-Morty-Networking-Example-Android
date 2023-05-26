@@ -40,11 +40,6 @@ class CharacterListContainerFragment : Fragment() {
         configureToolbar()
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
-    }
-
     // Private_Methods
     private fun configureToolbar() {
 
