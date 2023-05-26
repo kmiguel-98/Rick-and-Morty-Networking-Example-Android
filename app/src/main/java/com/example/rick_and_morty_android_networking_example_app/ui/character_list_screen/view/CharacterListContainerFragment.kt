@@ -45,23 +45,30 @@ class CharacterListContainerFragment : Fragment() {
 
         val toolbar = (requireActivity() as MainActivity).binding.mainToolbar
         toolbar.title = getString(R.string.character_list_title)
-        toolbar.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.R_n_M_palette_green))
+        toolbar.setBackgroundColor(
+            ContextCompat.getColor(
+                requireContext(),
+                R.color.R_n_M_palette_green
+            )
+        )
 
         //status bar color
         val window: Window = requireActivity().window
-        window.statusBarColor = ContextCompat.getColor(requireContext(), R.color.R_n_M_palette_green)
+        window.statusBarColor =
+            ContextCompat.getColor(requireContext(), R.color.R_n_M_palette_green)
     }
 
     private fun setUpCharacterListRecyclerView() {
 
-        val recyclerViewFragment = CharacterListRecyclerViewFragment.newInstance(viewModel = viewModel) { characterId ->
+        val recyclerViewFragment =
+            CharacterListRecyclerViewFragment.newInstance(viewModel = viewModel) { characterId ->
 
-            findNavController().navigate(
-                CharacterListContainerFragmentDirections.actionCharacterListScreenFragmentToCharacterDetailFragment(
-                    characterId
+                findNavController().navigate(
+                    CharacterListContainerFragmentDirections.actionCharacterListScreenFragmentToCharacterDetailFragment(
+                        characterId
+                    )
                 )
-            )
-        }
+            }
 
         childFragmentManager
             .beginTransaction()

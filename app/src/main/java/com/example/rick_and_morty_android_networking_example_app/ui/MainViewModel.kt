@@ -4,6 +4,5 @@ import androidx.lifecycle.ViewModel
 
 class MainViewModel: ViewModel() {
 
-
     var characterListScrollPosition: Int = 0
 }
