@@ -4,6 +4,7 @@ import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.rick_and_morty_android_networking_example_app.common.Constants
+import com.example.rick_and_morty_android_networking_example_app.common.Constants.API.LAST_PAGE_NUMBER
 import com.example.rick_and_morty_android_networking_example_app.common.Resource
 import com.example.rick_and_morty_android_networking_example_app.domain.models.Character
 import com.example.rick_and_morty_android_networking_example_app.domain.use_cases.RickAndMortyUseCases
@@ -49,7 +50,7 @@ class CharacterListViewModel @Inject constructor(
     private fun loadNextPage() {
 
         currentPage++
-        if (currentPage <= Constants.LAST_PAGE_NUMBER) {
+        if (currentPage <= LAST_PAGE_NUMBER) {
 
             viewModelScope.launch {
                 val currentList = state.value.characterList
@@ -81,5 +82,4 @@ class CharacterListViewModel @Inject constructor(
             }
         }.launchIn(viewModelScope)
     }
-
 }

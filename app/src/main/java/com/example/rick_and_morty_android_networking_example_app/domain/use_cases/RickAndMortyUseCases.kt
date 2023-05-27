@@ -6,8 +6,7 @@ import dagger.hilt.android.scopes.ViewModelScoped
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
-@ViewModelScoped
-class RickAndMortyUseCases @Inject constructor() {
+class RickAndMortyUseCases {
 
     interface CharacterUseCases {
 

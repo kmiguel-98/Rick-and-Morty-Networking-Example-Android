@@ -41,6 +41,7 @@ android {
     sourceSets {
         main {
             res.srcDirs = [
+                    "src/main/res/layout/character_detail_screen",
                     "src/main/res/layout/character_list_screen",
                     "src/main/res/layout/character_list_screen/cells/",
                     "src/main/res"
@@ -62,6 +63,7 @@ dependencies {
     implementation "androidx.navigation:navigation-fragment-ktx:2.5.3"
     implementation "androidx.navigation:navigation-ui-ktx:2.5.3"
     implementation 'androidx.activity:activity-ktx:1.7.1'
+    implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0'
 
     //Retrofit
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
